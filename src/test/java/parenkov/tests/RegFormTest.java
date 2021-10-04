@@ -13,6 +13,7 @@ public class RegFormTest extends TestBase {
     @Test
     void FillRegFormTest() {
 
+
         step("Открыть страницу с формой на https://demoqa.com/", () -> {
             regFormPage.openPage();
         });
