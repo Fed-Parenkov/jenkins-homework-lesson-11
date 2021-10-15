@@ -1,5 +1,6 @@
 package parenkov.tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import parenkov.pages.RegFormPage;
 
@@ -12,7 +13,6 @@ public class RegFormTest extends TestBase {
 
     @Test
     void FillRegFormTest() {
-
 
         step("Открыть страницу с формой на https://demoqa.com/", () -> {
             regFormPage.openPage();
