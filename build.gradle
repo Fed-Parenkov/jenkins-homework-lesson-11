@@ -49,9 +49,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task configuration(type: Test) {
-    useJUnitPlatform {
-        includeTags "configuration"
-    }
-}

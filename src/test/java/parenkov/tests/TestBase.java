@@ -6,20 +6,20 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 
 public class TestBase {
     @BeforeAll
-    @Tag("configuration")
     static void setup() {
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        String url = System.getProperty("url", "default_value");
+        String url = System.getenv("URL");
         Configuration.remote = "https://user1:1234@"+ url;
 
 //        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
