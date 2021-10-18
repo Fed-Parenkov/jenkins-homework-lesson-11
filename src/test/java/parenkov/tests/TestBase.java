@@ -20,7 +20,8 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
         String url = System.getenv("URL");
-        Configuration.remote = "https://user1:1234@"+ url;
+        Configuration.remote = url;
+//        Configuration.remote = "https://user1:1234@"+ url;
 
 //        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
     }
