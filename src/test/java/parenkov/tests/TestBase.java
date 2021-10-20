@@ -19,12 +19,8 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        String url = System.getProperty("url", "default");
-        Configuration.remote = url;
-        System.out.println(url);
-//        Configuration.remote = "https://user1:1234@"+ url;
-
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        String url = System.getProperty("rem_url");
+        Configuration.remote = "https://user1:1234@" + url;
     }
 
     @AfterEach
