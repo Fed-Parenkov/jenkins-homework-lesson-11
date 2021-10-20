@@ -14,6 +14,8 @@ import static java.lang.String.format;
 
 
 public class TestBase {
+
+    // передаем креды для selenoid из файла .properties
     public static CredentialsConfig credentials =
             ConfigFactory.create(CredentialsConfig.class);
 
@@ -28,10 +30,18 @@ public class TestBase {
         Configuration.startMaximized = true;
 
         String url = System.getProperty("url");
+
+        // передаем креды для selenoid из jenkins в виде системных переменных
+//        String login = System.getProperty("login");
+//        String password = System.getProperty("password");
+
+        // передаем креды для selenoid из файла .properties
         String login = credentials.login();
         String password = credentials.password();
 
-        String remote = format("https://%s:%s@%s", login, password, url);
+//        String remote = format("https://%s:%s@%s", login, password, url);
+        String remote = "https://" + login + ":" + password + "@" + url;
+//        String remote = "https://" + login + ":" + password + "@" + url;
         System.out.println(remote);
         Configuration.remote = remote;
     }
